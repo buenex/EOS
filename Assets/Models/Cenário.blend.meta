@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 234bf97876f314e4f892f060bda578ca
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Plane
@@ -10,6 +10,10 @@ ModelImporter:
     400002: Plane
     400004: Plane_001
     2100000: unnamed
+    2100002: corredores
+    2100004: chao__chao_jpg
+    2100006: teto
+    2100008: corredores__chao_jpg
     2300000: Plane
     2300002: Plane_001
     3300000: Plane
@@ -70,6 +74,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
