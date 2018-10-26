@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69de47c6cb9d00349b52615e33d68b22
+guid: 234bf97876f314e4f892f060bda578ca
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -15,12 +15,6 @@ ModelImporter:
     2100006: teto
     2100008: corredores__chao_jpg
     2100010: chao__chao_jpg_001
-    2100012: chao__chao_jpg_003
-    2100014: chao
-    2100016: chao_001
-    2100018: chao_001__chao_jpg_001
-    2100020: Ch_o
-    2100022: Ch_o__chao_jpg_001
     2300000: Plane
     2300002: Plane_001
     3300000: Plane

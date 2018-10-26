@@ -23,7 +23,7 @@ public class Fill : MonoBehaviour {
 		{
 			lamp.SetActive (false);
 		}
-		else if (img.fillAmount = 1) 
+		else if (img.fillAmount == 1) 
 		{
 			lamp.SetActive (true);
 		}
