@@ -26,6 +26,9 @@ ModelImporter:
     2100028: TESTE_2__teto_jpg
     2100030: TESTE_2__Teste_png
     2100032: Ch_o_2_0__Teste_png
+    2100034: teste__teto_jpg
+    2100036: TESTE_2
+    2100038: chao__teto_jpg
     2300000: Plane
     2300002: Plane_001
     3300000: Plane
@@ -41,6 +44,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Ch_o_2_0__Teste_png
     second: {fileID: 2100000, guid: da37fb42cbfdf4d4b93a0825a8d0aedb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TESTE_2
+    second: {fileID: 2100000, guid: e17a4817f6435aa45a969dd9e5579953, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -71,6 +79,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: chao__chao_jpg_001
     second: {fileID: 2100000, guid: ad2128d484010ab49a66e9db5b717563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chao__teto_jpg
+    second: {fileID: 2100000, guid: 7aff1bc7287d73f48b1dec5372a3e81d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

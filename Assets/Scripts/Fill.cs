@@ -15,18 +15,31 @@ public class Fill : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (img.fillAmount > 0)
+		if (lamp.activeInHierarchy==true)
 		{
-			img.fillAmount -= speed;
+			if (img.fillAmount > 0) {
+				img.fillAmount -= speed;
+			}
+			if (img.fillAmount <= 0) {
+				lamp.SetActive (false);
+			} else if (img.fillAmount == 1) {
+				lamp.SetActive (true);
+			}
 		}
-		if (img.fillAmount <= 0)
+		else 
 		{
-			lamp.SetActive (false);
+			
 		}
-		else if (img.fillAmount == 1) 
+		if (Input.GetKeyDown(KeyCode.F)&&lamp.activeInHierarchy==true)
 		{
-			lamp.SetActive (true);
+			lamp.SetActive(false);
 		}
+		else if((Input.GetKeyDown(KeyCode.F)) && lamp.activeInHierarchy==false)
+
+			{
+
+			lamp.SetActive(true);
+			}
 
 	}
 }
