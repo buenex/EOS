@@ -14,6 +14,8 @@ public class Setting : MonoBehaviour
     public Button GraficsButton;
     public Button AudioButton;
     public Button GeneralButton;
+	public GameObject Maps;
+
     private void Start()
     {
         PauseUI.SetActive(false);
@@ -21,10 +23,21 @@ public class Setting : MonoBehaviour
         GraficsUI.SetActive(false);
         AudioUI.SetActive(false);
         GeneralUI.SetActive(false);
+		Maps.SetActive(true);
     }
 
     private void Update()
+
     {
+
+		if (Input.GetKeyDown (KeyCode.DoubleQuote) && Maps.activeInHierarchy == true) 
+		{
+			Maps.SetActive (false);
+		}
+		else if (Input.GetKeyDown (KeyCode.DoubleQuote) && Maps.activeInHierarchy == false) 
+		{
+			Maps.SetActive (true);
+		}
         if (Input.GetKeyDown("escape"))
         {
             if (PauseUI.activeInHierarchy)
