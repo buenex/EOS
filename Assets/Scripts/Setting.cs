@@ -17,24 +17,25 @@ public class Setting : MonoBehaviour
 	public GameObject Maps;
 
     private void Start()
-    {
+	{	
+		Maps.SetActive(false);
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
         GraficsUI.SetActive(false);
         AudioUI.SetActive(false);
         GeneralUI.SetActive(false);
-		Maps.SetActive(true);
+
     }
 
     private void Update()
 
     {
 
-		if (Input.GetKeyDown (KeyCode.DoubleQuote) && Maps.activeInHierarchy == true) 
+		if (Input.GetKeyUp(KeyCode.M) && Maps.activeInHierarchy == true) 
 		{
 			Maps.SetActive (false);
 		}
-		else if (Input.GetKeyDown (KeyCode.DoubleQuote) && Maps.activeInHierarchy == false) 
+		else if (Input.GetKeyDown (KeyCode.M) && Maps.activeInHierarchy == false) 
 		{
 			Maps.SetActive (true);
 		}
