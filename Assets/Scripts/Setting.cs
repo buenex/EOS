@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Setting : MonoBehaviour
 {   
 
-    
+
     public GameObject PauseUI;
     public GameObject SettingsUI;
     public GameObject GraficsUI;
@@ -17,13 +17,19 @@ public class Setting : MonoBehaviour
 	public GameObject Maps;
 
     private void Start()
-	{	
+	{		
+		
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+
 		Maps.SetActive(false);
         PauseUI.SetActive(false);
         SettingsUI.SetActive(false);
         GraficsUI.SetActive(false);
         AudioUI.SetActive(false);
         GeneralUI.SetActive(false);
+
+
 
     }
 
@@ -33,23 +39,37 @@ public class Setting : MonoBehaviour
 
 		if (Input.GetKeyUp(KeyCode.M) && Maps.activeInHierarchy == true) 
 		{
+			
 			Maps.SetActive (false);
 		}
 		else if (Input.GetKeyDown (KeyCode.M) && Maps.activeInHierarchy == false) 
 		{
 			Maps.SetActive (true);
 		}
-        if (Input.GetKeyDown("escape"))
+		if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (PauseUI.activeInHierarchy)
-            {
-                PauseUI.SetActive(false);
-                Time.timeScale = 1;
+			{   
+				PauseUI.SetActive(false);
+				Time.timeScale = 1;
+
+				if (!PauseUI.activeInHierarchy)
+				{
+					Cursor.lockState = CursorLockMode.Locked;
+					Cursor.visible = false;
+					Input.GetMouseButtonDown (0);
+				}
+
+              
+
 
 
             }
            else if (!PauseUI.activeInHierarchy)
             {
+				
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
                 PauseUI.SetActive(true);
                 SettingsUI.SetActive(false);
                 GraficsUI.SetActive(false);
@@ -83,6 +103,8 @@ public class Setting : MonoBehaviour
         {
         if (PauseUI.activeInHierarchy)
         {
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
             PauseUI.SetActive(false);
             Time.timeScale = 1;
         }
