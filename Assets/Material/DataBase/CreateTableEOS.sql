@@ -1,11 +1,15 @@
 CREATE DATABASE EOSDatabase
 
+USE EOSDatabase
+
 CREATE TABLE Jogador(
 	id INT PRIMARY KEY IDENTITY(0,1),
 	nome VARCHAR(50) not null,
+	sobrenome VARCHAR(50) not null,
+	email VARCHAR(80) not null,
 	login VARCHAR(15)not null,
 	senha VARCHAR(30) not null,
-	email VARCHAR(80) not null
+	
 )
 
 CREATE TABLE Location(
@@ -28,6 +32,6 @@ CREATE TABLE Inventory(
 	slot5 INT,
 	slot6 INT,
 	flashLight FLOAT,
-	CONSTRAINT FK_Jogador FOREIGN KEY (id) REFERENCES JOGADOR(id)
+	CONSTRAINT FK_JogadorInventory FOREIGN KEY (id) REFERENCES JOGADOR(id)
 )
 

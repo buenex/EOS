@@ -1,0 +1,110 @@
+Data: 2018-11-16 18:12:04.4945
+Mensagem: Server does not exist or connection refused.
+StackTrace:   at System.Data.SqlClient.SqlConnection.Open () [0x00000] in <filename unknown>:0 
+  at DBAcces.connect () [0x0000e] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:29 
+InnerException: Mono.Data.Tds.Protocol.TdsInternalException: Server does not exist or connection refused. ---> System.Net.Sockets.SocketException: An address incompatible with the requested protocol was used.
+
+  at System.Net.Sockets.Socket.Connect (System.Net.EndPoint remoteEP, Boolean requireSocketPolicy) [0x00000] in <filename unknown>:0 
+  at System.Net.Sockets.Socket+Worker.Connect () [0x00000] in <filename unknown>:0 
+  --- End of inner exception stack trace ---
+  at Mono.Data.Tds.Protocol.TdsComm..ctor (System.String dataSource, Int32 port, Int32 packetSize, Int32 timeout, TdsVersion tdsVersion) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds..ctor (System.String dataSource, Int32 port, Int32 packetSize, Int32 timeout, TdsVersion tdsVersion) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70..ctor (System.String server, Int32 port, Int32 packetSize, Int32 timeout, TdsVersion version) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds80..ctor (System.String server, Int32 port, Int32 packetSize, Int32 timeout) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.TdsConnectionPoolManager.CreateConnection (Mono.Data.Tds.Protocol.TdsConnectionInfo info) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.TdsConnectionPool.GetConnection () [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlConnection.Open () [0x00000] in <filename unknown>:0 
+Source: Mono SqlClient Data Provider
+TargetSite: Void Open()
+Data: 2018-11-16 18:55:41.0835
+Mensagem: Login failed for user 'sa'.
+StackTrace:   at System.Data.SqlClient.SqlConnection.ErrorHandler (System.Object sender, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.OnTdsErrorMessage (Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessMessage (TdsPacketSubType subType) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessSubPacket () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.NextResult () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.SkipToEnd () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.Connect (Mono.Data.Tds.Protocol.TdsConnectionParameters connectionParameters) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds80.Connect (Mono.Data.Tds.Protocol.TdsConnectionParameters connectionParameters) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlConnection.Open () [0x00000] in <filename unknown>:0 
+InnerException: 
+Source: Mono SqlClient Data Provider
+TargetSite: Void ErrorHandler(System.Object, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs)
+Data: 2018-11-16 18:58:11.2312
+Mensagem: Login failed for user 'sa'.
+StackTrace:   at System.Data.SqlClient.SqlConnection.ErrorHandler (System.Object sender, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.OnTdsErrorMessage (Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessMessage (TdsPacketSubType subType) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessSubPacket () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.NextResult () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.SkipToEnd () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.Connect (Mono.Data.Tds.Protocol.TdsConnectionParameters connectionParameters) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds80.Connect (Mono.Data.Tds.Protocol.TdsConnectionParameters connectionParameters) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlConnection.Open () [0x00000] in <filename unknown>:0 
+InnerException: 
+Source: Mono SqlClient Data Provider
+TargetSite: Void ErrorHandler(System.Object, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs)
+Data: 2018-11-16 19:04:57.0118
+Mensagem: The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Parameter 5 ("@login"): Data type 0xA7 has an invalid data length or metadata length.
+StackTrace:   at System.Data.SqlClient.SqlConnection.ErrorHandler (System.Object sender, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.OnTdsErrorMessage (Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessMessage (TdsPacketSubType subType) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessSubPacket () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.NextResult () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.SkipToEnd () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.ExecRPC (TdsRpcProcId rpcId, System.String sql, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.Execute (System.String commandText, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.Execute (Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.ExecuteNonQuery () [0x00000] in <filename unknown>:0 
+  at DBAcces.insert (System.String nome, System.String sobrenome, System.String email, System.String login, System.String senha) [0x000cd] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:62 
+InnerException: 
+Source: Mono SqlClient Data Provider
+TargetSite: Void ErrorHandler(System.Object, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs)
+Data: 2018-11-16 19:07:55.6652
+Mensagem: The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Parameter 5 ("@login"): Data type 0xA7 has an invalid data length or metadata length.
+StackTrace:   at System.Data.SqlClient.SqlConnection.ErrorHandler (System.Object sender, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.OnTdsErrorMessage (Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessMessage (TdsPacketSubType subType) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessSubPacket () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.NextResult () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.SkipToEnd () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.ExecRPC (TdsRpcProcId rpcId, System.String sql, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.Execute (System.String commandText, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.Execute (Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.ExecuteNonQuery () [0x00000] in <filename unknown>:0 
+  at DBAcces.insert (System.String nome, System.String sobrenome, System.String email, System.String login, System.String senha) [0x000cd] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:62 
+InnerException: 
+Source: Mono SqlClient Data Provider
+TargetSite: Void ErrorHandler(System.Object, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs)
+Data: 2018-11-16 19:11:26.6757
+Mensagem: The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Parameter 5 ("@login"): Data type 0xA7 has an invalid data length or metadata length.
+StackTrace:   at System.Data.SqlClient.SqlConnection.ErrorHandler (System.Object sender, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.OnTdsErrorMessage (Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessMessage (TdsPacketSubType subType) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessSubPacket () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.NextResult () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.SkipToEnd () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.ExecRPC (TdsRpcProcId rpcId, System.String sql, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.Execute (System.String commandText, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.Execute (Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.ExecuteNonQuery () [0x00000] in <filename unknown>:0 
+  at DBAcces.insert (System.String nome, System.String sobrenome, System.String email, System.String login, System.String senha) [0x000cd] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:62 
+InnerException: 
+Source: Mono SqlClient Data Provider
+TargetSite: Void ErrorHandler(System.Object, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs)
+Data: 2018-11-16 19:12:55.7717
+Mensagem: Invalid object name 'Player'.
+StackTrace:   at System.Data.SqlClient.SqlConnection.ErrorHandler (System.Object sender, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.OnTdsErrorMessage (Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs e) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessMessage (TdsPacketSubType subType) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.ProcessSubPacket () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.NextResult () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds.SkipToEnd () [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.ExecRPC (TdsRpcProcId rpcId, System.String sql, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at Mono.Data.Tds.Protocol.Tds70.Execute (System.String commandText, Mono.Data.Tds.TdsMetaParameterCollection parameters, Int32 timeout, Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.Execute (Boolean wantResults) [0x00000] in <filename unknown>:0 
+  at System.Data.SqlClient.SqlCommand.ExecuteNonQuery () [0x00000] in <filename unknown>:0 
+  at DBAcces.insert (System.String nome, System.String sobrenome, System.String email, System.String login, System.String senha) [0x000cd] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:62 
+InnerException: 
+Source: Mono SqlClient Data Provider
+TargetSite: Void ErrorHandler(System.Object, Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs)
