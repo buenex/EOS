@@ -268,19 +268,14 @@ public class DBAcces : MonoBehaviour {
 			StringBuilder sql = new StringBuilder ();
 			using (SqlCommand command = new SqlCommand ()) {
 				command.Connection = connection;
-				sql.Append ("SELECT * FROM Jogador WHERE login = '"+login+"'");
+				sql.Append ("SELECT id FROM Jogador WHERE login = '"+login+"'");
 				command.CommandText = sql.ToString ();
 				try {
-					using (SqlDataReader rd = command.ExecuteReader ()) {
-						reader = rd;
-						Debug.Log (rd.HasRows);
-						//GameController.IdPlayer = (int)rd.GetValue(0);
-						//GameController.LoginPlayer = rd.GetValue(1).ToString();
-					}
+					reader=command.ExecuteReader();
+
 				} catch (System.Exception ex) {
 					Debug.Log (ex);
 				}
-
 			}
 		}
 		//select command

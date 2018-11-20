@@ -8,9 +8,5 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		DBAcces.select ("buenex");
-
-		//IdPlayer = (int)DBAcces.reader ["id"];
-		//LoginPlayer = DBAcces.reader ["login"].ToString();
-		Debug.Log (IdPlayer);
 	}
 }
