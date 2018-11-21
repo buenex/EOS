@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using UnityEngine;
 using System.Text;
+using System.Data;
 
 
 
@@ -12,12 +13,6 @@ public class DBAcces : MonoBehaviour {
 	private static SqlConnection connection;
 	//public static SqlCommand command { get; set; }
 	public static SqlDataReader reader { get; set; }
-
-	public void Awake(){
-		
-
-//		
-	}
 
 	public static bool connect(){
 		//command.Connection = connection;
@@ -263,21 +258,27 @@ public class DBAcces : MonoBehaviour {
 		}
 		//select command
 	}
-	public static void select(string login){
+	public static int select(string login){
 		if (connect()) {
 			StringBuilder sql = new StringBuilder ();
 			using (SqlCommand command = new SqlCommand ()) {
 				command.Connection = connection;
 				sql.Append ("SELECT id FROM Jogador WHERE login = '"+login+"'");
 				command.CommandText = sql.ToString ();
-				try {
-					reader=command.ExecuteReader();
+				//Debug.Log (connection.ConnectionString);
 
+				try {
+					reader= command.ExecuteReader();
+					if(reader.Read())
+						return (int)reader["id"];
 				} catch (System.Exception ex) {
+					return -1;
 					Debug.Log (ex);
 				}
+
 			}
 		}
+		return -1;
 		//select command
 	}
 
