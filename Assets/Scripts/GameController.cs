@@ -5,9 +5,15 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 	public static int IdPlayer{ get; set; }
 	public static string LoginPlayer{ get; set; }
-	// Use this for initialization
-	void Awake () {
-		IdPlayer=DBAcces.select ("buenexx");
-		Debug.Log (IdPlayer);
-	}
+
+}
+
+public class Location : MonoBehaviour{
+	public static Vector3 location{ get; set; }
+	public static Vector3 Rotation{ get; set; }
+}
+
+public class Inventory{
+	public static int[] itens;
+	public static float flashLight;
 }

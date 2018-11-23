@@ -8,15 +8,23 @@ public class ButtonController : MonoBehaviour {
 	public InputField nome;
 	public InputField sobrenome;
 	public InputField email;
-	public InputField login;
+	public InputField Login;
 	public InputField senha;
 	public InputField confirmarSenha;
+	public InputField loginUsuario;
+	public InputField senhaUsuario;
 
-	public void logar(){
+	public void Cadastro(){
 		if (senha.text == confirmarSenha.text) {
-			DBAcces.insert (nome.text, sobrenome.text, email.text, login.text, senha.text);
+			DBAcces.insert (nome.text, sobrenome.text, email.text, Login.text, senha.text);
+			Message.text = "cadastrado com sucesso";
 		} else {
 			Message.text = "As senhas digitadas não batem";
+		}
+	}
+	public void login(){
+		if (DBAcces.login (loginUsuario.text)) {
+			Message.text="Logado com sucesso!";
 		}
 	}
 }

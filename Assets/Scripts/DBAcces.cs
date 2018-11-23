@@ -11,7 +11,6 @@ using System.Data;
 public class DBAcces : MonoBehaviour {
 	static string stringConnection =  @"Data Source=127.0.0.1;initial catalog=EOSDatabase;user id=sa;password=123456;";
 	private static SqlConnection connection;
-	//public static SqlCommand command { get; set; }
 	public static SqlDataReader reader { get; set; }
 
 	public static bool connect(){
@@ -55,15 +54,25 @@ public class DBAcces : MonoBehaviour {
 
 				try {
 					command.ExecuteNonQuery ();
-					Debug.Log ("inseriu");
+					sql = new StringBuilder ();
+					sql.Append ("INSERT INTO Location VALUES('"+login+"',0,0,0,0,0,0)");
+					command.CommandText = sql.ToString();
+					command.ExecuteNonQuery();
+
+					sql.Append ("INSERT INTO Inventory VALUES('"+login+"',0,0,0,0,0,0,1)");
+					command.CommandText = sql.ToString();
+					command.ExecuteNonQuery();
+
 				} catch (SqlException ex) {
-					Log.gravar (ex);
+					//Log.gravar (ex);
 					Debug.Log ("nao inseriu " + ex.Message);
 				}
+
 			}
 		} else {
 			Debug.Log ("Nao teve conexao");
 		}
+
 	}
 	public static void insert(int id,float posX,float posY,float posZ,float rotX,float rotY,float rotZ){
 		if (connect()) {
@@ -245,41 +254,83 @@ public class DBAcces : MonoBehaviour {
 
 	#endregion
 
-	public static void select(int id,string table){
+	public static void selectlocation(){
 		if (connect()) {
 			StringBuilder sql = new StringBuilder ();
 			using (SqlCommand command = new SqlCommand ()) {
 				command.Connection = connection;
 
-				sql.Append ("SELECT * FROM " + table + " WHERE id = "+id);
+				sql.Append ("SELECT * FROM location WHERE login ='"+GameController.LoginPlayer+"'");
 				command.CommandText = sql.ToString ();
-				reader = command.ExecuteReader ();
+				try {
+					reader = command.ExecuteReader ();
+					if(reader.Read()){
+						Location.location=new Vector3((float)reader["posX"],(float)reader["posY"],(float)reader["posZ"]);
+						Debug.Log(Location.location.x);
+					}
+				} catch (System.Exception ex) {
+					Log.gravar (ex);
+				}
 			}
 		}
-		//select command
 	}
-	public static int select(string login){
+
+	public static bool login(string login){
 		if (connect()) {
 			StringBuilder sql = new StringBuilder ();
+
 			using (SqlCommand command = new SqlCommand ()) {
+				
 				command.Connection = connection;
-				sql.Append ("SELECT id FROM Jogador WHERE login = '"+login+"'");
+				sql.Append ("SELECT J.id,");
+				sql.Append ("       J.login,");
+				sql.Append ("       L.posX as lposx,");
+				sql.Append ("       L.posY as lposy,");
+				sql.Append ("       L.posZ as lposz,");
+				sql.Append ("       L.rotX as lrotx,");
+				sql.Append ("       L.rotY as lroty,");
+				sql.Append ("       L.rotZ as lrotz,");
+				sql.Append ("       I.slot1 as islot1,");
+				sql.Append ("       I.slot2 as islot2,");
+				sql.Append ("       I.slot3 as islot3,");
+				sql.Append ("       I.slot4 as islot4,");
+				sql.Append ("       I.slot5 as islot5,");
+				sql.Append ("       I.slot6 as islot6,");
+				sql.Append ("       I.flashLight as iFlashLight ");
+				sql.Append ("FROM Jogador as J ");
+				sql.Append ("INNER JOIN Location L ON L.login = '" + login + "' ");
+				sql.Append ("INNER JOIN Inventory I ON I.login = '" + login + "' ");
+
 				command.CommandText = sql.ToString ();
-				//Debug.Log (connection.ConnectionString);
 
 				try {
 					reader= command.ExecuteReader();
-					if(reader.Read())
-						return (int)reader["id"];
-				} catch (System.Exception ex) {
-					return -1;
-					Debug.Log (ex);
-				}
+					if(reader.Read()){
+						if(reader.HasRows){
+							GameController.LoginPlayer=reader["login"].ToString();
+							GameController.IdPlayer = (int)reader["id"];
+							Location.location = new Vector3((float)reader["lposy"],(float)reader["lposy"],(float)reader["lposz"]);
+							Location.Rotation = new Vector3((float)reader["lrotx"],(float)reader["lroty"],(float)reader["lrotz"]);
+							Inventory.itens[0] = (int)reader["islot1"];
+							Inventory.itens[1] = (int)reader["islot2"];
+							Inventory.itens[2] = (int)reader["islot3"];
+							Inventory.itens[3] = (int)reader["islot4"];
+							Inventory.itens[4] = (int)reader["islot5"];
+							Inventory.itens[5] = (int)reader["islot6"];
+							Inventory.flashLight = (float)reader["iFlashLight"];
 
+							return true;
+						}else{
+							return false;
+						}
+					}
+				} catch (SqlException ex) {
+					Log.gravar (ex);
+					return false;
+				}
 			}
 		}
-		return -1;
-		//select command
+		return false;
 	}
 
 	public static void disconnect(){
