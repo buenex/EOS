@@ -13,7 +13,7 @@ CREATE TABLE Jogador(
 )
 
 CREATE TABLE Location(
-	id VARCHAR(15) PRIMARY KEY ,
+	login VARCHAR(15) PRIMARY KEY ,
 	posX FLOAT,
 	poxy FLOAT,
 	posZ FLOAT,
@@ -24,7 +24,7 @@ CREATE TABLE Location(
 )
 
 CREATE TABLE Inventory(
-	id VARCHAR(15) PRIMARY KEY,
+	login VARCHAR(15) PRIMARY KEY,
 	slot1 INT,
 	slot2 INT,
 	slot3 INT,
@@ -33,6 +33,12 @@ CREATE TABLE Inventory(
 	slot6 INT,
 	flashLight FLOAT,
 	CONSTRAINT FK_JogadorInventory FOREIGN KEY (id) REFERENCES Jogador(login)
+)
+
+CREATE TABLE Itens(
+	id int,
+	descricao VARCHAR(40),
+	
 )
 
 SELECT id FROM Jogador WHERE login = 'buenexx'
