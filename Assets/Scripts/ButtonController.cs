@@ -25,6 +25,12 @@ public class ButtonController : MonoBehaviour {
 	public void login(){
 		if (DBAcces.login (loginUsuario.text)) {
 			Message.text="Logado com sucesso!";
+			Debug.Log (Location.location);
+			Debug.Log (Location.Rotation);
+			Debug.Log (Inventory.itens.ToString());
+			Debug.Log (Inventory.flashLight);
+			Debug.Log (GameController.IdPlayer);
+			Debug.Log (GameController.LoginPlayer);
 		}
 	}
 }

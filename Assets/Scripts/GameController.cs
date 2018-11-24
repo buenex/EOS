@@ -15,5 +15,5 @@ public class Location : MonoBehaviour{
 
 public class Inventory{
 	public static int[] itens;
-	public static float flashLight;
+	public static float flashLight{ get; set; }
 }
