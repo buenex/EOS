@@ -23,11 +23,12 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown ("e") && pegaItem) {
+		if (Input.GetKeyDown ("E") && pegaItem) {
 			
 			foreach (var i in obj) {
 				if (i.transform.GetChild (0) == null) {
 					Instantiate (obj [item].gameObject,i.transform).transform.SetParent (i.transform);
+					pegaItem = false;
 				}
 			}
 		}
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour {
 			int.TryParse(col.gameObject.name,out item);
 			Debug.Log (item);
 			pegaItem = true;
+			Destroy (col.gameObject);
 		}
 	}
 	void OnTriggerExit(Collider col){
