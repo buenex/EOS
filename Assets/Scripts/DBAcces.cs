@@ -6,37 +6,27 @@ using UnityEngine;
 using System.Text;
 using System.Data;
 
-
-
 public class DBAcces : MonoBehaviour {
+	
 	static string stringConnection =  @"Data Source=127.0.0.1;initial catalog=EOSDatabase;user id=sa;password=123456;";
 	private static SqlConnection connection;
 	public static SqlDataReader reader { get; set; }
 
-	public static bool connect(){
-		//command.Connection = connection;
-		 SqlConnection conn = new SqlConnection (stringConnection);
-		//Debug.Log (conn.ConnectionString);
-		//conn.Open ();
+	public static bool connect(){		
+		connection.ConnectionString = stringConnection;
 
 		try {
-			conn.Open ();
-			connection = conn;
-			//Debug.Log("conectou");
+			connection.Open ();
 			return true;
 
 		} catch (System.Exception ex) {
-			//Log Error
 			Log.gravar(ex);
-//			Debug.Log(connection.State);
-		//	Debug.Log(conn.State);
 			return false;
-
-
 		}
 	}
 
 	#region Insert
+
 	public static void insert(string nome,string sobrenome,string email,string login,string senha){
 		if (connect()) {
 			StringBuilder sql = new StringBuilder ();
@@ -61,14 +51,14 @@ public class DBAcces : MonoBehaviour {
 
 					sql = new StringBuilder ();
 
-					sql.Append ("INSERT INTO Location VALUES('"+login+"',0,0,0,0,0,0)");
+					sql.Append ("INSERT INTO Location VALUES('"+login+"',0,1,0,0,0,0)");
 
 					command.CommandText = sql.ToString();
 					command.ExecuteNonQuery();
 
 					sql = new StringBuilder();
 
-					sql.Append ("INSERT INTO Inventory VALUES('"+login+"',0,0,0,0,0,0,1)");
+					sql.Append ("INSERT INTO Inventory VALUES('"+login+"',7,7,7,7,7,7,1)");
 
 					command.CommandText = sql.ToString();
 					command.ExecuteNonQuery();
@@ -94,11 +84,11 @@ public class DBAcces : MonoBehaviour {
 
 				sql.Append ("UPDATE Location ");
 				sql.Append ("SET posX = @posX,");
-				sql.Append ("posY = @posY,");
-				sql.Append ("posZ = @posZ,");
-				sql.Append ("rotX = @rotX,");
-				sql.Append ("rotY = @rotY,");
-				sql.Append ("rotZ = @rotZ) ");
+				sql.Append ("    posY = @posY,");
+				sql.Append ("    posZ = @posZ,");
+				sql.Append ("    rotX = @rotX,");
+				sql.Append ("    rotY = @rotY,");
+				sql.Append ("    rotZ = @rotZ) ");
 				sql.Append ("WHERE id = @id");
 
 				command.CommandText = sql.ToString ();
@@ -171,7 +161,7 @@ public class DBAcces : MonoBehaviour {
 			StringBuilder sql = new StringBuilder ();
 			using (SqlCommand command = new SqlCommand ()) {
 				command.Connection = connection;
-				command.CommandText = sql.ToString ();
+
 				sql.Append ("SELECT J.id,");
 				sql.Append ("       J.login,");
 				sql.Append ("       L.posX as lposx,");
@@ -195,26 +185,23 @@ public class DBAcces : MonoBehaviour {
 				command.CommandText = sql.ToString ();
 
 				try {							
-					Debug.Log ("entrou Try");
 					reader = command.ExecuteReader();
 					if(reader.Read()){
-						Debug.Log ("try - read");
 							if(reader.HasRows){
-							Debug.Log ("try - read - hasRows");
-							GameController.LoginPlayer=reader["login"].ToString();
-							GameController.IdPlayer = (int)reader["id"];
-							Location.location = new Vector3((float)((double)reader["lposx"]),(float)((double)reader["lposy"]),(float)((double)reader["lposz"]));
-							Location.Rotation = new Vector3((float)((double)reader["lrotx"]),(float)((double)reader["lroty"]),(float)((double)reader["lrotz"]));
-							Inventory.itens=new int[6];
-							Inventory.itens[0] = (int)reader["islot1"];
-							Inventory.itens[1] = (int)reader["islot2"];
-							Inventory.itens[2] = (int)reader["islot3"];
-							Inventory.itens[3] = (int)reader["islot4"];
-							Inventory.itens[4] = (int)reader["islot5"];
-							Inventory.itens[5] = (int)reader["islot6"];
-							Inventory.flashLight = (float)((double)reader["iFlashLight"]);
+								GameController.LoginPlayer=reader["login"].ToString();
+								GameController.IdPlayer = (int)reader["id"];
+								Location.location = new Vector3((float)((double)reader["lposx"]),(float)((double)reader["lposy"]),(float)((double)reader["lposz"]));
+								Location.Rotation = new Vector3((float)((double)reader["lrotx"]),(float)((double)reader["lroty"]),(float)((double)reader["lrotz"]));
+								Inventory.itens=new int[6];
+								Inventory.itens[0] = (int)reader["islot1"];
+								Inventory.itens[1] = (int)reader["islot2"];
+								Inventory.itens[2] = (int)reader["islot3"];
+								Inventory.itens[3] = (int)reader["islot4"];
+								Inventory.itens[4] = (int)reader["islot5"];
+								Inventory.itens[5] = (int)reader["islot6"];
+								Inventory.flashLight = (float)((double)reader["iFlashLight"]);
 
-							return true;
+								return true;
 						}else{
 							Debug.Log ("else HasRows");
 							return false;

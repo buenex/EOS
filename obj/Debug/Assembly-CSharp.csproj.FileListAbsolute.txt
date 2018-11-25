@@ -160,3 +160,4 @@ C:\Users\Bueno\Documents\GitHub\EOS\Temp\bin\Debug\UnityEngine.SpatialTracking.x
 C:\Users\Bueno\Documents\GitHub\EOS\Temp\bin\Debug\UnityEngine.ParticlesLegacyModule.xml
 C:\Users\Bueno\Documents\GitHub\EOS\obj\Debug\Assembly-CSharp.dll
 C:\Users\Bueno\Documents\GitHub\EOS\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Bueno\Documents\GitHub\EOS\Temp\bin\Debug\Facebook.Unity.Settings.dll
