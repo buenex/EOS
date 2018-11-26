@@ -13,14 +13,17 @@ public class DBAcces : MonoBehaviour {
 	public static SqlDataReader reader { get; set; } // Propriedade de reader, leitor de dados do banco de dados
 
 	public static bool connect(){		//inicio do metodo connect, onde abrirá conexao com o banco de dados
-		connection.ConnectionString = stringConnection;//atribuindo ao objeto de conexao, as informações para acesso do banco de dados
+		SqlConnection con = new SqlConnection();
+		con.ConnectionString = stringConnection;//atribuindo ao objeto de conexao, as informações para acesso do banco de dados
 
 		try {//estrutura que tentara fazer todos os comandos dentro de seu bloco
-			connection.Open (); //tenta abrir conexao
+			con.Open (); //tenta abrir conexao
+			connection = con;
 			return true; // se deu para abrir, ele retornara verdadeiro
 
 		} catch (System.Exception ex) {//se nao abrir a conexão ele cairá no CATCH e pegará um erro (excecao)
 			Log.gravar(ex);//está gravando esse erro em um arquivo dentro do nosso jogo
+			Debug.Log(ex);
 			return false;//e retorna o valor de falso para mostrar que nao conseguiu abrir conexao
 		}
 	}
@@ -156,7 +159,9 @@ public class DBAcces : MonoBehaviour {
 	#endregion
 
 	public static bool login(string login){//metodo para logar o jogador e carregar o load do jogo
+		//Debug.Log("login");
 		if (connect()) {//chamada do metodo connect para testar se conseguiu abrir conexao
+			//Debug.Log("login.if");
 			StringBuilder sql = new StringBuilder ();//instancia de um objeto string builder, que é basicamente um construtor de texto
 			using (SqlCommand command = new SqlCommand ()) {//usando um novo slq command, que serve para executar as aḉões no banco de dados
 				command.Connection = connection;//passando para o command onde ele irá executar os comandos SQL
@@ -182,7 +187,7 @@ public class DBAcces : MonoBehaviour {
 				sql.Append ("WHERE J.login = '"+login+"'");
 
 				command.CommandText = sql.ToString ();						//passando para o command o que ele executara
-
+				//Debug.Log("mano");
 				try {														//tentara fazer os comandos dentro desse bloco
 					reader = command.ExecuteReader();						//aqui ele está atribuindo um comando de leitura de dados do banco e trazendo o resultado para a propriedade de SqlDataReader que colocamos no inicio do codigo
 					if(reader.Read()){										//aqui ele testa se o leitor está lendo algo,

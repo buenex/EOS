@@ -5,45 +5,39 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 	public static int IdPlayer{ get; set; }
 	public static string LoginPlayer{ get; set; }
-	int item;
+	public static int item;
 	public GameObject Player;
 	public GameObject[] inventory;
 	public GameObject[] obj;
-	bool pegaItem;
+	public static bool pegaItem;
+	public static bool colocaItem;
 
 	void Start(){
 		pegaItem = false;
+		colocaItem = true;
 		if(Player != null && inventory != null){
 			Player.transform.position = Location.location;
 			Player.transform.rotation = new Quaternion( Location.Rotation.x,Location.Rotation.y,Location.Rotation.z,Player.transform.rotation.w);
 
 			for (int i = 0; i < 6; i++) {
 				GameObject nov = new GameObject();
-				Instantiate (obj [1], inventory[i].transform);
+				Instantiate (obj [Inventory.itens[i]], inventory[i].transform);
 			}
 		}
-
-		if (Input.GetKeyDown ("E") && pegaItem) {
-			
-			foreach (var i in obj) {
-				if (i.transform.GetChild (0) == null) {
-					Instantiate (obj [item].gameObject,i.transform).transform.SetParent (i.transform);
-					pegaItem = false;
+	}
+	void Update(){
+		if (Input.GetKeyDown ("e")) {
+			for (int i = 0; i < 6; i++) {
+				if (inventory [i].gameObject.transform.childCount == 0 ) {
+					if (colocaItem) {
+						GameObject nov = new GameObject ();
+						Instantiate (obj [item], inventory [i].transform);
+						Inventory.itens [i] = item;
+						colocaItem = false;
+						playerCol.Exclude ();
+					}
 				}
 			}
-		}
-	}
-	void OnTriggerEnter(Collider col){
-		if (col.gameObject.tag == "cartao") {
-			int.TryParse(col.gameObject.name,out item);
-			Debug.Log (item);
-			pegaItem = true;
-			Destroy (col.gameObject);
-		}
-	}
-	void OnTriggerExit(Collider col){
-		if (col.gameObject.tag == "cartao") {
-			pegaItem = false;
 		}
 	}
 }
@@ -54,6 +48,6 @@ public class Location : MonoBehaviour{
 }
 
 public class Inventory{
-	public static int[] itens;
+	public static int[] itens{ get; set; }
 	public static float flashLight{ get; set; }
 }

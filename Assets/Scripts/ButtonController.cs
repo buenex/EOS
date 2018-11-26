@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour {
 	public Text Message;
@@ -24,13 +25,11 @@ public class ButtonController : MonoBehaviour {
 	}
 	public void login(){
 		if (DBAcces.login (loginUsuario.text)) {
-			Message.text="Logado com sucesso!";
-			Debug.Log (Location.location);
-			Debug.Log (Location.Rotation);
-			Debug.Log (Inventory.itens.ToString());
-			Debug.Log (Inventory.flashLight);
-			Debug.Log (GameController.IdPlayer);
-			Debug.Log (GameController.LoginPlayer);
+			Message.text = "Logado com sucesso!";
 		}
+	}
+
+	public void loadScene(string nameScene){
+		SceneManager.LoadScene (nameScene);
 	}
 }

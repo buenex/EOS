@@ -1,0 +1,48 @@
+Data: 2018-11-25 18:15:45.6251
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:17:22.4756
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:17:47.1185
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:18:24.3512
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:19:29.1982
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:21:09.9034
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00036] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:23 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:26:54.9343
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()
+Data: 2018-11-25 18:28:09.2368
+Mensagem: Object reference not set to an instance of an object
+StackTrace:   at DBAcces.connect () [0x00018] in C:\Users\Bueno\Documents\GitHub\EOS\Assets\Scripts\DBAcces.cs:20 
+InnerException: 
+Source: Assembly-CSharp
+TargetSite: Boolean connect()

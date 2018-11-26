@@ -1168,8 +1168,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.688083, y: 16.713509, z: 15.273772}
-  m_Center: {x: 0.00000054054277, y: -1.049809, z: 1.7490315}
+  m_Size: {x: 207.6336, y: 16.713509, z: 22.432589}
+  m_Center: {x: 101.97276, y: -1.049809, z: 5.3284316}
 --- !u!1001 &134835696
 Prefab:
   m_ObjectHideFlags: 0
@@ -1240,6 +1240,10 @@ Prefab:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.1165341
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -2150,7 +2154,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f3f5a77b66e1cdf4595eb2d060294845, type: 3}
       propertyPath: m_Name
-      value: 2
+      value: cartao
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f3f5a77b66e1cdf4595eb2d060294845, type: 3}
+      propertyPath: m_TagString
+      value: cartao
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3f5a77b66e1cdf4595eb2d060294845, type: 3}
@@ -2608,7 +2616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -99.8999, y: -17.200043}
+  m_AnchoredPosition: {x: -99.8999, y: -17.200058}
   m_SizeDelta: {x: -587.56, y: -445.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278439071
@@ -2932,7 +2940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120.79642, y: -40.000015}
+  m_AnchoredPosition: {x: -120.79642, y: -40}
   m_SizeDelta: {x: -636.7, y: -426.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &332800013
@@ -5365,7 +5373,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f3f5a77b66e1cdf4595eb2d060294845, type: 3}
       propertyPath: m_Name
-      value: 1
+      value: cartao
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f3f5a77b66e1cdf4595eb2d060294845, type: 3}
+      propertyPath: m_TagString
+      value: cartao
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3f5a77b66e1cdf4595eb2d060294845, type: 3}
@@ -5548,7 +5560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 140.19995, y: -14.4999695}
+  m_AnchoredPosition: {x: 140.19995, y: -14.5}
   m_SizeDelta: {x: -683.2, y: -456.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648749828
@@ -8137,7 +8149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3, y: -136.40001}
+  m_AnchoredPosition: {x: -3, y: -136.4}
   m_SizeDelta: {x: -456, y: -325.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883874558
@@ -14171,7 +14183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120.79642, y: -40}
+  m_AnchoredPosition: {x: -120.79642, y: -40.000015}
   m_SizeDelta: {x: -636.7, y: -426.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809430155
@@ -14318,6 +14330,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
     type: 2}
   m_PrefabInternal: {fileID: 134835696}
+--- !u!114 &1816352134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1816352129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3df6cb3b28f794197733ee75d7968d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1842345172
 GameObject:
   m_ObjectHideFlags: 0
@@ -14854,7 +14877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120.79642, y: -40.000015}
+  m_AnchoredPosition: {x: -120.79642, y: -40}
   m_SizeDelta: {x: -636.7, y: -426.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922497323
