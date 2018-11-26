@@ -6,6 +6,8 @@ public class Door : MonoBehaviour {
 	public bool door1, door2;
 	public float location, maxLocation,speed;
 	bool ativar;
+	public bool requerItem;
+	public int itemName;
 	// Use this for initialization
 	void Start () {
 		ativar = false;
@@ -35,8 +37,17 @@ public class Door : MonoBehaviour {
 		return this.ativar;
 	}
 	void OnTriggerEnter(Collider col){
-		if (col.tag == "Player")
-			ativar = true;
+		if (col.tag == "Player"){
+			if (requerItem) {
+				foreach (int item in Inventory.itens) {
+					if (item == itemName) {
+						ativar = true;
+					}
+				}
+			} else {
+				ativar = true;
+			}
+		}	
 	}
 	void OnTriggerExit(Collider col){
 		if (col.tag == "Player")
