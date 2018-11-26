@@ -26,10 +26,24 @@ public class ButtonController : MonoBehaviour {
 	public void login(){
 		if (DBAcces.login (loginUsuario.text)) {
 			Message.text = "Logado com sucesso!";
+			SceneManager.LoadScene ("fase");
+		} else {
+			Message.text = "Login, Senha incorreto!";
 		}
 	}
 
 	public void loadScene(string nameScene){
 		SceneManager.LoadScene (nameScene);
+	}
+	public void openObject(GameObject obj){
+		obj.SetActive (true);
+	}
+
+	public void closeObject(GameObject obj){
+		obj.SetActive (false);
+	}
+
+	public void exit(){
+		Application.Quit ();
 	}
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a549c78b2c7a47419a66ece4cd9b00c
+guid: e8a417c7d5d604f4aa447e99c6f904ca
 TextureImporter:
   fileIDToRecycleName:
     21300000: sprite sheet tela inicial_0
@@ -8,7 +8,7 @@ TextureImporter:
     21300006: sprite sheet tela inicial_3
     21300008: sprite sheet tela inicial_4
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 6
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -26,6 +26,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -36,7 +38,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: 1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: -1

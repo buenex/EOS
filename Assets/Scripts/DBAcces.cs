@@ -78,24 +78,24 @@ public class DBAcces : MonoBehaviour {
 
 	#region Update
 
-	public static void update(int id,float posX,float posY,float posZ,float rotX,float rotY,float rotZ){ //metodo para atualizar dados da localizacao no banco de dados
+	public static void updateLocation(string login,float posX,float posY,float posZ,float rotX,float rotY,float rotZ){ //metodo para atualizar dados da localizacao no banco de dados
 		if (connect()) {//chamada do metodo connect para testar se conseguiu abrir conexao
 			StringBuilder sql = new StringBuilder ();//instancia de um objeto string builder, que é basicamente um construtor de texto
 			using (SqlCommand command = new SqlCommand ()) {//usando um novo slq command, que serve para executar as aḉões no banco de dados
 				command.Connection = connection;//passando para o command onde ele irá executar os comandos SQL
-
+				Debug.Log("update location");
 				sql.Append ("UPDATE Location ");//colocando no string builder uma parte do comando SQL
 				sql.Append ("SET posX = @posX,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 				sql.Append ("    posY = @posY,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 				sql.Append ("    posZ = @posZ,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 				sql.Append ("    rotX = @rotX,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 				sql.Append ("    rotY = @rotY,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
-				sql.Append ("    rotZ = @rotZ) ");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
-				sql.Append ("WHERE id = @id");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
+				sql.Append ("    rotZ = @rotZ ");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
+				sql.Append ("WHERE login = @login");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 
 				command.CommandText = sql.ToString ();//passando para o command o que ele executara
 
-				command.Parameters.Add ("@id", System.Data.SqlDbType.Int).Value = id;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+				command.Parameters.Add ("@login", System.Data.SqlDbType.VarChar).Value = login;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 				command.Parameters.Add ("@posX", System.Data.SqlDbType.Float).Value = posX;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 				command.Parameters.Add ("@posY", System.Data.SqlDbType.Float).Value = posY;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 				command.Parameters.Add ("@posZ", System.Data.SqlDbType.Float).Value = posZ;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
@@ -104,9 +104,13 @@ public class DBAcces : MonoBehaviour {
 				command.Parameters.Add ("@rotZ", System.Data.SqlDbType.Float).Value = rotZ;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 
 				try {//tentara fazer os comandos dentro desse bloco
+					
 					command.ExecuteNonQuery ();//aqui ele executara o comando dentro do SQL
+					Debug.Log("update location try");
+
 				} catch (SqlException ex) {//se nao abrir a conexão ele cairá no CATCH e pegará um erro (excecao)
 					//Log error
+					Debug.Log(ex);
 					Log.gravar (ex);//está gravando esse erro em um arquivo dentro do nosso jogo
 				}
 			}
@@ -116,7 +120,7 @@ public class DBAcces : MonoBehaviour {
 		//update command Location
 	}
 
-	public static void update(int id,int slot1,int slot2,int slot3,int slot4,int slot5,int slot6,float flashLight){//metodo para inserir dados do inventario no banco de dados
+	public static void updateInventory(string login,int slot1,int slot2,int slot3,int slot4,int slot5,int slot6,float flashLight){//metodo para inserir dados do inventario no banco de dados
 		if (connect()) {//chamada do metodo connect para testar se conseguiu abrir conexao
 			StringBuilder sql = new StringBuilder ();//instancia de um objeto string builder, que é basicamente um construtor de texto
 			using (SqlCommand command = new SqlCommand ()) {//usando um novo slq command, que serve para executar as aḉões no banco de dados
@@ -129,12 +133,12 @@ public class DBAcces : MonoBehaviour {
 				sql.Append ("slot4 = @slot4,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 				sql.Append ("slot5 = @slot5,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 				sql.Append ("slot6 = @slot6,");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
-				sql.Append ("flashLight = @flashLight) ");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
-				sql.Append ("WHERE id = @id");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
+				sql.Append ("flashLight = @flashLight ");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
+				sql.Append ("WHERE login = @login");//e juntando com essa  parte do comando, com alguns parametros (@nome) etc.
 
 				command.CommandText = sql.ToString ();//passando para o command o que ele executara
 
-				command.Parameters.Add ("@id", System.Data.SqlDbType.Int).Value = id;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+				command.Parameters.Add ("@login", System.Data.SqlDbType.VarChar).Value = login;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 				command.Parameters.Add ("@slot1", System.Data.SqlDbType.Int).Value = slot1;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 				command.Parameters.Add ("@slot2", System.Data.SqlDbType.Int).Value = slot2;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 				command.Parameters.Add ("@slot3", System.Data.SqlDbType.Int).Value = slot3;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
@@ -144,9 +148,11 @@ public class DBAcces : MonoBehaviour {
 				command.Parameters.Add ("@flashLight", System.Data.SqlDbType.Float).Value = flashLight;//adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 
 				try {//tentara fazer os comandos dentro desse bloco
+					
 					command.ExecuteNonQuery ();//aqui ele executara o comando dentro do SQL
 				} catch (SqlException ex) {//se nao abrir a conexão ele cairá no CATCH e pegará um erro (excecao)
 					//Log error
+					Debug.Log("catch Update = "+ex);
 					Log.gravar (ex);//está gravando esse erro em um arquivo dentro do nosso jogo
 				}
 			}
