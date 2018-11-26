@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 6a7cab361c9b96e4984780decd640f1f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane
+    100004: Plane_001
+    400000: //RootNode
+    400002: Plane
+    400004: Plane_001
+    2100000: Material
+    2100002: Wall__Wall_png
+    2100004: Material__Wall_png
+    2100006: Wall
+    2100008: Cantos
+    2100010: Mesa
+    2100012: P__da_Mesa
+    2100014: Wall__wall2_png
+    2100016: Wall__Wall_png_002
+    2100018: Wall_1__wall2_png
+    2100020: Wall_Enfermagem
+    2100022: Wall_Enfermagem__Wall_png
+    2100024: Wall_Enfermagem__Wall_Enfermagem_jpeg
+    2100026: Mesa__Wall_Enfermagem_jpeg
+    2100028: Wall_Stop__Wall_Stop_jpeg
+    2100030: Wall__Wall_png_003
+    2100032: Material__Wall_png_003
+    2100034: Wall_1__Wall_png_003
+    2100036: Armarios
+    2100038: Mesa__Wall_png_003
+    2100040: Armarios__Armario_png
+    2100042: Portas_Armario__Armario_png
+    2100044: Wall_Alimenta__o
+    2100046: Wall_Alimenta__o__Armario_png
+    2100048: Refetorio
+    2300000: Plane
+    2300002: Plane_001
+    2300004: //RootNode
+    3300000: Plane
+    3300002: Plane_001
+    3300004: //RootNode
+    4300000: Plane_001
+    4300002: Plane
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armarios
+    second: {fileID: 2100000, guid: f5a5387022db8fa4fa1c6af76d381e32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armarios__Armario_png
+    second: {fileID: 2100000, guid: e195be90ab31a174eac4c6153752598b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cantos
+    second: {fileID: 2100000, guid: 196699f877e4e47409c4735172027379, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 6d8a369e0f3bc0e4ebd0bdf96d38a529, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__Wall_png_003
+    second: {fileID: 2100000, guid: 8ad4af1730e8198409a4ac90d83ffc5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mesa
+    second: {fileID: 2100000, guid: e24caf974fb1abc42ad53f2598c58d61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mesa__Wall_Enfermagem_jpeg
+    second: {fileID: 2100000, guid: 653c7f2a7a98951449ddfdfc9750c9ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mesa__Wall_png_003
+    second: {fileID: 2100000, guid: 1e3a823c49be7d842ad865a3276701ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P__da_Mesa
+    second: {fileID: 2100000, guid: 73f0266fa463e3f41a8695f2c809db4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Portas_Armario__Armario_png
+    second: {fileID: 2100000, guid: b1c837f54564eb146b2629a53d03f698, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Refetorio
+    second: {fileID: 2100000, guid: 097d4c2b29c11d64ebf711cd79e6c943, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall
+    second: {fileID: 2100000, guid: 87b21bb26a50a4e4aa938f1898e33d28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_1__Wall_png_003
+    second: {fileID: 2100000, guid: 4affbabfa88525249b4ae53f841c26ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_1__wall2_png
+    second: {fileID: 2100000, guid: c7cb013cc6ab91b4e91a1997c8076ad4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Alimenta__o
+    second: {fileID: 2100000, guid: 0c54e655f4fa0914f82a7edc8abfc448, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Alimenta__o__Armario_png
+    second: {fileID: 2100000, guid: baa8c1034cbece64791da7f722603b4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Enfermagem
+    second: {fileID: 2100000, guid: a3aaba7a9244eb546b955cc1ef8aed0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Enfermagem__Wall_Enfermagem_jpeg
+    second: {fileID: 2100000, guid: 111f1afb84674204290e06f14c50f4e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Enfermagem__Wall_png
+    second: {fileID: 2100000, guid: 1bda314474da06c4bbb20bdb30c90b29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Stop__Wall_Stop_jpeg
+    second: {fileID: 2100000, guid: a88d6a12b0fe5e04c8865d1a6b3e1f99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall__Wall_png
+    second: {fileID: 2100000, guid: 356aeeda4492c8047bbe3a66bd871da7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall__Wall_png_002
+    second: {fileID: 2100000, guid: 45b5463f20cd9f1479e8c3f5cd52567c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall__Wall_png_003
+    second: {fileID: 2100000, guid: 7c81fcca7e57e0048b0cc4c04938e523, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
