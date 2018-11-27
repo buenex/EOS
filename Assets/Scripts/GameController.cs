@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
 	public static bool pegaItem;
 	public static bool colocaItem;
 	public Image flashLight;
+	public  GameObject nota;
 
 	void Start(){
 		pegaItem = false;
@@ -32,7 +33,7 @@ public class GameController : MonoBehaviour {
 	}
 	void Update(){
 		#region SAVE
-		if(Input.GetKeyDown("q")){
+		if(Input.GetKeyDown("p")){
 			Debug.Log("save inicio");
 			Location.location = Player.transform.position;
 			Location.Rotation = new Vector3(cameraPlayer.transform.rotation.x,Player.transform.rotation.y,cameraPlayer.transform.rotation.z);
@@ -43,6 +44,9 @@ public class GameController : MonoBehaviour {
 		}
 		#endregion
 		if (Input.GetKeyDown ("e")) {
+			if (notas.permite) {
+				nota.SetActive (true);
+			}
 			for (int i = 0; i < 6; i++) {
 				if (inventory [i].gameObject.transform.childCount == 0 ) {
 					if (colocaItem) {

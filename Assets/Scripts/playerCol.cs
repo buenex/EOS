@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerCol : MonoBehaviour {
 	public static GameObject card;
+	public notas notinha;
 	// Use this for initialization
 	void Start () {
 		card = null;
@@ -21,12 +22,17 @@ public class playerCol : MonoBehaviour {
 			GameController.colocaItem = true;
 			card = col.gameObject;
 		}
+		if (col.tag == "nota") {
+			notas.permite = true;
+
+		}
 	}
 	void OnTriggerExit(Collider col){
 		if (col.gameObject.tag == "cartao") {
 			GameController.pegaItem = false;
 			GameController.colocaItem = false;
 			card = null;
+			notas.permite = false;
 		}
 	}
 
