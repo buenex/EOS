@@ -37,10 +37,11 @@ public class Door : MonoBehaviour {
 		return this.ativar;
 	}
 	void OnTriggerEnter(Collider col){
+		
 		if (col.tag == "Player"){
 			if (requerItem) {
-				foreach (int item in Inventory.itens) {
-					if (item == itemName) {
+				for (int i = 0; i < 6; i++) {
+					if (Inventory.itens[i] == itemName) {
 						ativar = true;
 					}
 				}
