@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
 	public static bool colocaItem;
 	public Image flashLight;
 	public  GameObject nota;
+	public GameObject inv;
 
 	void Start(){
 		pegaItem = false;
@@ -43,6 +44,14 @@ public class GameController : MonoBehaviour {
 			Debug.Log("save fim");
 		}
 		#endregion
+
+		if(Input.GetKeyDown("i")){
+			if (inv.gameObject.activeSelf) {
+				inv.SetActive (false);
+			} else if (!inv.gameObject.activeSelf) {
+				inv.SetActive (true);
+			}
+		}
 		if (Input.GetKeyDown ("e")) {
 			if (notas.permite) {
 				nota.SetActive (true);
