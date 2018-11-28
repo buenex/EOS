@@ -34,42 +34,51 @@ public class DBAcces : MonoBehaviour {
 		if (connect()) {//chamada do metodo connect para testar se conseguiu abrir conexao
 			StringBuilder sql = new StringBuilder ();//instancia de um objeto string builder, que é basicamente um construtor de texto
 
-			using (SqlCommand command = new SqlCommand ()) { //usando um novo slq command, que serve para executar as aḉões no banco de dados
+			SqlCommand command = new SqlCommand ();//usando um novo slq command, que serve para executar as aḉões no banco de dados
 				
-				command.Connection = connection;//passando para o command onde ele irá executar os comandos SQL
+			command.Connection = connection;//passando para o command onde ele irá executar os comandos SQL
 
-				sql.Append ("INSERT INTO Jogador "); //colocando no string builder uma parte do comando SQL
-				sql.Append ("VALUES (@nome,@sobrenome,@email,@login,@senha)"); //e juntando com a segunda parte do comando, com alguns parametros (@nome) etc.
+			sql.Append ("INSERT INTO Jogador "); //colocando no string builder uma parte do comando SQL
+			sql.Append ("VALUES (@nome,@sobrenome,@email,@login,@senha)"); //e juntando com a segunda parte do comando, com alguns parametros (@nome) etc.
+		
+			command.CommandText = sql.ToString ();//passando para o comando , o que ele executara no SQL,porem não executa ainda
 
-				command.CommandText = sql.ToString ();//passando para o comando , o que ele executara no SQL,porem não executa ainda
+			command.Parameters.Add ("@nome", System.Data.SqlDbType.VarChar, 50).Value = nome; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+			command.Parameters.Add ("@sobrenome", System.Data.SqlDbType.VarChar, 50).Value = sobrenome; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+			command.Parameters.Add ("@login", System.Data.SqlDbType.VarChar, 15).Value = login; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+			command.Parameters.Add ("@senha", System.Data.SqlDbType.VarChar, 30).Value = senha; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+			command.Parameters.Add ("@email", System.Data.SqlDbType.VarChar, 80).Value = email; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
 
-				command.Parameters.Add ("@nome", System.Data.SqlDbType.VarChar, 50).Value = nome; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
-				command.Parameters.Add ("@sobrenome", System.Data.SqlDbType.VarChar, 50).Value = sobrenome; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
-				command.Parameters.Add ("@login", System.Data.SqlDbType.VarChar, 15).Value = login; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
-				command.Parameters.Add ("@senha", System.Data.SqlDbType.VarChar, 30).Value = senha; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
-				command.Parameters.Add ("@email", System.Data.SqlDbType.VarChar, 80).Value = email; //adicionando o parametro passado na string acima com valor passado no parametro desse metodo
+			try {//tentara fazer os comandos dentro desse bloco
+				command.ExecuteNonQuery (); //aqui ele executara o comando dentro do SQL
+				command= new SqlCommand();
+				command.Connection=connection;
 
-				try {//tentara fazer os comandos dentro desse bloco
-					command.ExecuteNonQuery (); //aqui ele executara o comando dentro do SQL
+				sql = new StringBuilder (); //novo objeto string builder vazio
 
-					sql = new StringBuilder (); //novo objeto string builder vazio
+				sql.Append ("INSERT INTO Location VALUES(@login,0,1,0,0,0,0)");  //colocando no string builder uma parte do comando SQL
+				 
+				command.CommandText = sql.ToString(); //passando para o command o que ele executara
+                command.Parameters.Add("@login", System.Data.SqlDbType.VarChar, 15).Value = login;
+				command.ExecuteNonQuery(); //aqui ele executa o comando que passamos acima
+				command= new SqlCommand();
+				command.Connection=connection;
 
-					sql.Append ("INSERT INTO Location VALUES('"+login+"',0,1,0,0,0,0)");  //colocando no string builder uma parte do comando SQL
-					 
-					command.CommandText = sql.ToString(); //passando para o command o que ele executara
-					command.ExecuteNonQuery(); //aqui ele executa o comando que passamos acima
 
 					sql = new StringBuilder();//novo objeto string builder vazio
 
-					sql.Append ("INSERT INTO Inventory VALUES('"+login+"',7,7,7,7,7,7,1)");//colocando no string builder uma parte do comando SQL
+					sql.Append ("INSERT INTO Inventory VALUES(@login,7,7,7,7,7,7,1)");//colocando no string builder uma parte do comando SQL
 
 					command.CommandText = sql.ToString();//passando para o command o que ele executara
+                    command.Parameters.Add("@login", System.Data.SqlDbType.VarChar, 15).Value = login;
 					command.ExecuteNonQuery();//aqui ele executa o comando que passamos acima
+
+				command.Dispose();
 
 				} catch (SqlException ex) {//se nao abrir a conexão ele cairá no CATCH e pegará um erro (excecao)
 					Log.gravar (ex);//está gravando esse erro em um arquivo dentro do nosso jogo
-				}
 			}
+
 		} else { //se não houve conexão ele cairá aqui
 			Debug.Log ("Nao teve conexao");
 		}
@@ -190,15 +199,17 @@ public class DBAcces : MonoBehaviour {
 				sql.Append ("FROM Jogador as J ");							//e juntando com essa  parte do comando
 				sql.Append ("INNER JOIN Location L ON L.login = J.login "); //e juntando com essa  parte do comando
 				sql.Append ("INNER JOIN Inventory I ON I.login = L.login ");//e juntando com essa  parte do comando
-				sql.Append ("WHERE J.login = '"+login+"'");
+				sql.Append ("WHERE J.login = @login");
 
 				command.CommandText = sql.ToString ();						//passando para o command o que ele executara
-				//Debug.Log("mano");
+				command.Parameters.Add ("@login", System.Data.SqlDbType.VarChar).Value = login;
+
 				try {														//tentara fazer os comandos dentro desse bloco
 					reader = command.ExecuteReader();						//aqui ele está atribuindo um comando de leitura de dados do banco e trazendo o resultado para a propriedade de SqlDataReader que colocamos no inicio do codigo
 					if(reader.Read()){										//aqui ele testa se o leitor está lendo algo,
 						if(reader.HasRows){									//aqui ele testa se o leitor encontrou dados no banco de dados
 							GameController.LoginPlayer=reader["login"].ToString();  //aqui ele esta pegando valor do leitor e atribuindo a uma propriedade do script game controller onde salva o login do jogador
+							Debug.Log(reader["login"].ToString() );
 							GameController.IdPlayer = (int)reader["id"];			//aqui ele esta pegando valor do leitor e atribuindo a uma propriedade do script game controller onde salva o id do jogador
 							Location.location = new Vector3((float)((double)reader["lposx"]),(float)((double)reader["lposy"]),(float)((double)reader["lposz"])); 		//aqui ele esta pegando valor do leitor e atribuindo a uma propriedade do script game controller onde salva a posicao do jogador
 							Location.Rotation = new Vector3((float)((double)reader["lrotx"]),(float)((double)reader["lroty"]),(float)((double)reader["lrotz"]));		//aqui ele esta pegando valor do leitor e atribuindo a uma propriedade do script game controller onde salva a rotacao do jogador
