@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\mainSpaceShip.cs" />
      <Compile Include="Assets\Scripts\notas.cs" />
      <Compile Include="Assets\Scripts\playerCol.cs" />
+     <Compile Include="Assets\Scripts\Reator.cs" />
      <Compile Include="Assets\Scripts\Setting.cs" />
      <Compile Include="Assets\Scripts\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Scripts\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />

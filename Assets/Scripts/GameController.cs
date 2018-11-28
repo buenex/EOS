@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 	public Image flashLight;
 	public  GameObject nota;
 	public GameObject inv;
+	public playerCol pc;
 
 	void Start(){
 		pegaItem = false;
@@ -55,6 +56,8 @@ public class GameController : MonoBehaviour {
 		if (Input.GetKeyDown ("e")) {
 			if (notas.permite) {
 				nota.SetActive (true);
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
 			}
 			for (int i = 0; i < 6; i++) {
 				if (inventory [i].gameObject.transform.childCount == 0 ) {
@@ -64,6 +67,7 @@ public class GameController : MonoBehaviour {
 						Inventory.itens [i] = item;
 						colocaItem = false;
 						playerCol.Exclude ();
+						pc.ajuda.SetActive (false);
 					}
 				}
 			}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerCol : MonoBehaviour {
 	public static GameObject card;
 	public notas notinha;
+	public GameObject ajuda;
 	// Use this for initialization
 	void Start () {
 		card = null;
@@ -21,9 +22,11 @@ public class playerCol : MonoBehaviour {
 			GameController.pegaItem = true;
 			GameController.colocaItem = true;
 			card = col.gameObject;
+			ajuda.SetActive (true);
 		}
 		if (col.tag == "nota") {
 			notas.permite = true;
+			ajuda.SetActive (true);
 
 		}
 	}
@@ -33,6 +36,9 @@ public class playerCol : MonoBehaviour {
 			GameController.colocaItem = false;
 			card = null;
 			notas.permite = false;
+			ajuda.SetActive (false);
+		}if (col.tag == "nota") {
+			ajuda.SetActive (false);
 		}
 	}
 

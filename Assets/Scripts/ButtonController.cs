@@ -43,6 +43,12 @@ public class ButtonController : MonoBehaviour {
 		obj.SetActive (false);
 	}
 
+	public void closeAjuda(GameObject obj){
+		obj.SetActive (false);
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
+
 	public void exit(){
 		Application.Quit ();
 	}
