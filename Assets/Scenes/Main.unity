@@ -2839,18 +2839,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1156000076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 282840815}
-        m_MethodName: openObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1177553344}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1156000076
@@ -3591,14 +3580,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 282840815}
-        m_MethodName: openObject
-        m_Mode: 2
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 113237232}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: fase
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3832,6 +3821,9 @@ MonoBehaviour:
   inventory: []
   obj: []
   flashLight: {fileID: 0}
+  nota: {fileID: 0}
+  inv: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!1 &1624673973
 GameObject:
   m_ObjectHideFlags: 0

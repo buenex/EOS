@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class ButtonController : MonoBehaviour {
 	public Text Message;
@@ -14,6 +15,7 @@ public class ButtonController : MonoBehaviour {
 	public InputField confirmarSenha;
 	public InputField loginUsuario;
 	public InputField senhaUsuario;
+	public FirstPersonController perso;
 
 	public void Cadastro(){
 		if (senha.text == confirmarSenha.text) {
@@ -47,6 +49,7 @@ public class ButtonController : MonoBehaviour {
 		obj.SetActive (false);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+		perso.enabled = true;
 	}
 
 	public void exit(){

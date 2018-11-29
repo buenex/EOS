@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using  UnityStandardAssets.Characters.FirstPerson;
 
 public class GameController : MonoBehaviour {
 	public static int IdPlayer{ get; set; }
@@ -17,10 +18,23 @@ public class GameController : MonoBehaviour {
 	public  GameObject nota;
 	public GameObject inv;
 	public playerCol pc;
+	public Reator reator;
+	public FirstPersonController perso;
+
+
 
 	void Start(){
 		pegaItem = false;
-		colocaItem = true;
+		colocaItem = false;
+		Location.location = new Vector3(0,1,0);
+			Inventory.itens=new int[7];
+			Inventory.itens[0] = 7;
+			Inventory.itens[1] = 7;
+			Inventory.itens[2] = 7;
+			Inventory.itens[3] = 7;
+			Inventory.itens[4] = 7;
+			Inventory.itens[5] = 7;
+			Inventory.flashLight=1;
 		if(Player != null && inventory != null){
 			Player.transform.position = Location.location;
 			Player.transform.rotation = new Quaternion (0,Location.Rotation.y,0,0);
@@ -31,7 +45,7 @@ public class GameController : MonoBehaviour {
 				GameObject nov = new GameObject();
 				Instantiate (obj [Inventory.itens[i]], inventory[i].transform);
 			}
-		}
+		}		
 	}
 	void Update(){
 		#region SAVE
@@ -55,9 +69,21 @@ public class GameController : MonoBehaviour {
 		}
 		if (Input.GetKeyDown ("e")) {
 			if (notas.permite) {
+				perso.enabled=false;
 				nota.SetActive (true);
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
+			}
+			if(Reator.liga){
+				reator.ligaLuz();
+			}
+
+			if(playerCol.pegaPilha){
+				flashLight.fillAmount=1;
+				playerCol.ExcludePilha();
+				pc.ajuda.SetActive (false);
+				playerCol.pegaPilha=false;
+			
 			}
 			for (int i = 0; i < 6; i++) {
 				if (inventory [i].gameObject.transform.childCount == 0 ) {

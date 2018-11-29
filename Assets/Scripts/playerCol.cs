@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerCol : MonoBehaviour {
-	public static GameObject card;
+	public static GameObject card,pilha;
 	public notas notinha;
 	public GameObject ajuda;
+	public static bool pegaPilha =false;
 	// Use this for initialization
 	void Start () {
 		card = null;
@@ -28,6 +29,14 @@ public class playerCol : MonoBehaviour {
 			notas.permite = true;
 			ajuda.SetActive (true);
 
+		}if(col.tag=="reator"){
+			Reator.liga=true;
+			ajuda.SetActive (true);	
+		}
+		if(col.tag=="pilha"){
+			pegaPilha=true;
+			pilha=col.gameObject;
+			ajuda.SetActive (true);	
 		}
 	}
 	void OnTriggerExit(Collider col){
@@ -40,10 +49,22 @@ public class playerCol : MonoBehaviour {
 		}if (col.tag == "nota") {
 			ajuda.SetActive (false);
 		}
+		if(col.tag=="reator"){
+			Reator.liga=false;	
+			ajuda.SetActive (false);	
+		}
+		if(col.tag=="pilha"){
+			pegaPilha=false;
+			ajuda.SetActive (false);	
+		}
 	}
 
 	public static void Exclude(){
 		Destroy (card.gameObject);
+	}
+
+	public static void ExcludePilha(){
+		Destroy (pilha.gameObject);
 	}
 }
 

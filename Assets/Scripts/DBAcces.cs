@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Data;
 using UnityEngine;
 using System.Text;
-using System.Data;
 
 public class DBAcces : MonoBehaviour {
 	
