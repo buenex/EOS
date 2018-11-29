@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour {
 				if (inventory [i].gameObject.transform.childCount == 0 ) {
 					if (colocaItem) {
 						GameObject nov = new GameObject ();
-						Instantiate (obj [item], inventory [i].transform);
+						Instantiate (obj [item], inventory [i].transform.position,inventory[i].transform.rotation,inventory [i].transform);
 						Inventory.itens [i] = item;
 						colocaItem = false;
 						playerCol.Exclude ();
